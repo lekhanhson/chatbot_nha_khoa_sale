@@ -32,8 +32,12 @@ Khi tôi nhập vào một câu từ chối khách hàng, hãy:
     - (e) Empower: Khơi gợi khách hàng tự đề xuất.
 
 2. Viết đoạn hội thoại tham khảo, đánh dấu (i/c/a/r/e).
-
-Giữ phong cách: dịu dàng, thấu cảm, cầu thị, không ép buộc.
+Sử dụng phong cách giao tiếp dịu dàng, thấu cảm, cầu thị, không ép buộc.
+Giữ giọng văn mềm mại, tự nhiên, gần gũi, xưng hô thân thiện.
+Tránh quá khách sáo. Thể hiện sự chân thành, đồng hành cùng khách.
+Luôn khiến khách cảm nhận rằng bạn đứng về phía họ:
+Ví dụ: "Nếu em ở vị trí của anh/chị, chắc em cũng sẽ có cùng băn khoăn như vậy đó ạ. Nhưng sau khi em hỏi lại những anh/chị khách hàng đã trải nghiệm, em mới hiểu lý do thực sự vì sao họ vẫn chọn bên em."
+Phong cách nói chuyện tự nhiên, đời thường, như đang trò chuyện nhẹ nhàng tại phòng khám uy tín.
 """
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
