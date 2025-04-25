@@ -1,9 +1,10 @@
+# icare_bot/main.py
 
 import os
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, CommandHandler, filters
-import openai
+from openai import AsyncOpenAI
 
 # Cấu hình log
 logging.basicConfig(
@@ -15,7 +16,8 @@ logging.basicConfig(
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
-openai.api_key = OPENAI_API_KEY
+# Khởi tạo OpenAI Client mới
+client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
 # Prompt cố định
 ICARE_PROMPT = """
@@ -27,18 +29,18 @@ Khi tôi nhập vào một câu từ chối khách hàng, hãy:
     - (c) Clarify: Phân tích thông điệp ẩn.
     - (a) Ask: Gợi mở 1-2 câu hỏi mở.
     - (r) Respond: Cách xử lý tinh tế.
-    - (e) Empower: Khới gợi khách hàng tự đề xuất.
+    - (e) Empower: Khơi gợi khách hàng tự đề xuất.
 
 2. Viết đoạn hội thoại tham khảo, đánh dấu (i/c/a/r/e).
 
-Giữ phong cách: dịu dàng, thấu cảm, cầu thị, không ép buộc, không chốt thô.
+Giữ phong cách: dịu dàng, thấu cảm, cầu thị, không ép buộc.
 """
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4o",
+    response = await client.chat.completions.create(
+        model="gpt-4-turbo",
         messages=[
             {"role": "system", "content": ICARE_PROMPT},
             {"role": "user", "content": user_text}
@@ -47,11 +49,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         max_tokens=1000
     )
 
-    reply = response['choices'][0]['message']['content']
+    reply = response.choices[0].message.content
     await update.message.reply_text(reply)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Chào mừng bạn đến với AI\n[Nha Khoa Bs Loan Irene]\n\n! Hãy nhập vào một lời từ chối của khách hàng, tôi sẽ phân tích theo I-CARE và viết hội thoại mẫu cho bạn.")
+    await update.message.reply_text(
+        "Chào mừng bạn đến với AI Sale  🌟\n[Học Viện Nha Khoa Irene]\n\n"
+        "Hãy nhập vào lời từ chối của khách hàng, tôi sẽ giúp bạn."
+    )
 
 def main():
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
