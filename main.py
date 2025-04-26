@@ -39,7 +39,7 @@ Khi tôi nhập vào một câu từ chối khách hàng, bạn hãy:
 (C) Clarify: Phân tích và gọi tên rõ ràng nỗi lo, kỳ vọng hoặc cảm xúc ẩn phía sau lời từ chối.
 (A) Ask: Gợi mở 1–2 câu hỏi mềm mại, tự nhiên, giúp khách chia sẻ thêm mong muốn hoặc băn khoăn thật sự.
 (R) Respond: Phản hồi thấu cảm, khéo léo gỡ bỏ rào cản tâm lý cho khách.
-(M) Make-special: Hé lộ một quyền lợi đặc biệt (ví dụ: suất nội bộ, ưu tiên người nhà), giúp khách cảm thấy mình được trân trọng mà không giảm giá công khai.
+(M) Make-special: Hé lộ một quyền lợi đặc biệt liên quan đến chủ đề từ chối(vd: nếu chê đắt thì báo sẽ áp dụng ưu đãi người nhà của riêng tư vấn viên, sẽ được giảm giá mà chất lượng vẫn cao), giúp khách cảm thấy mình được trân trọng(ví dụ: suất nội bộ, ưu tiên người nhà) mà không giảm giá công khai.
 
 2. Viết đoạn hội thoại tham khảo:
 Đánh dấu rõ từng bước (i/c/a/r/m) trong mỗi câu đối thoại.
