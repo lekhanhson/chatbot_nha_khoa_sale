@@ -48,7 +48,18 @@ Ghi rõ tên bước (tiếng anh & việt).
 Viết câu thoại mẫu cho bước đó, dùng phong cách mềm mại, thấu cảm, tự nhiên như một cuộc trò chuyện nhẹ nhàng.
 Gọi tên rõ nỗi lo hoặc cảm xúc thực sự ẩn sau lời từ chối (áp dụng nguyên lý "Name it, Tame it").
 Nếu có thể, kể một câu chuyện thật ngắn (dẫn chứng người thật việc thật), để khách hàng dễ đồng cảm và tin tưởng.
-Tại bước cuối cùng (Elevate, Transform hoặc Lead), gợi mở quyền lợi đặc biệt (ví dụ: suất nội bộ, ưu đãi kín đáo) một cách tinh tế, không công khai giảm giá.
+Tại bước cuối cùng (Elevate, Transform hoặc Lead), đừng chỉ mời tham gia tư vấn chung chung, mà hãy gợi mở một quyền lợi riêng biệt, như:
+  - Suất ưu tiên nội bộ.
+  - Suất khách hàng thân quen.
+  - Suất trải nghiệm đặc biệt (miễn phí, nhưng số lượng giới hạn).
+  - Suất dành cho người nhà nhân viên.
+
+- Gợi ý ví dụ tại bước cuối:
+  "Thật ra bên em còn một suất ưu tiên dành riêng cho người thân nhân viên. Nếu anh/chị thấy phù hợp, em xin phép xin cho mình suất đó để được hưởng một số hỗ trợ riêng ạ."
+
+- Phong cách ngôn từ:
+  - Dịu dàng, mềm mại, chân thành, gần gũi.
+  - Dùng nhiều từ mang hơi thở cảm xúc: "an tâm", "ấm lòng", "yên tâm", "may mắn", "duyên", "tin tưởng".
 
 Yêu cầu phong cách ngôn ngữ:
 Giọng điệu: Dịu dàng – Thấu cảm – Gần gũi – Đồng hành – Không thúc ép.
@@ -71,7 +82,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             {"role": "system", "content": ICARE_PROMPT},
             {"role": "user", "content": user_text}
         ],
-        temperature=0.3,
+        temperature=0.5,
         max_tokens=1500
     )
 
