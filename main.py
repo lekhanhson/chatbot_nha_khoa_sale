@@ -60,11 +60,16 @@ Không dùng từ "giảm giá", không công khai.
 Để khách cảm thấy được ưu ái và gắn kết cảm xúc.
 
 Bước 3: Gợi quà tặng phù hợp (RẤT QUAN TRỌNG):
-Chọn quà tặng phù hợp với mô hình xử lý theo bảng ánh xạ:
-CARE: Voucher nâng cấp, bộ kit chăm sóc, thẻ bảo hành nâng cao.
-HEART: Suất tư vấn cá nhân hóa, kiểm tra tổng quát, quà lưu niệm tinh tế.
-SOUL: Thẻ bảo hành nâng cao, suất kiểm tra định kỳ, thẻ chăm sóc gia đình.
-BRIDGE: Bộ kit chăm sóc, ưu tiên lịch hẹn đẹp, thẻ chăm sóc gia đình.
+bạn hãy đánh giá tình huống, và khuyên tư vấn viên tặng quà sau cho khách, gửi kèm chat mẫu để tư vấn viên trao đổi, có thể tặng tối đa 3 quà/khách.
+🦷 Suất tư vấn cá nhân hóa với bác sĩ trưởng khoa: "Thật ra bên em có một suất tư vấn riêng với bác sĩ trưởng khoa. Nếu anh/chị muốn, em xin phép sắp xếp cho mình nhé."
+🎁 Suất vệ sinh răng miễn phí sau điều trị: "Ngoài ra, bên em dành tặng anh/chị 1 lần vệ sinh răng cao cấp miễn phí sau điều trị – như một món quà nhỏ chăm sóc lâu dài ạ."
+📋 Suất kiểm tra tổng quát miễn phí lần tiếp theo: "Để anh/chị an tâm hơn, em xin phép tặng thêm 1 suất kiểm tra tổng quát miễn phí sau 6 tháng, mình không cần lo lắng về sau ạ."
+🎫 Voucher nâng cấp dịch vụ nhỏ: "Nếu anh/chị muốn, em có thể xin tặng thêm voucher nâng cấp vật liệu cao cấp – như một cách hỗ trợ nhẹ nhàng cho mình ạ."
+🎁 Bộ kit chăm sóc răng miệng cao cấp: "À, bên em có bộ kit chăm sóc răng miệng cao cấp, thường chỉ dành cho khách thân thiết. Em xin phép chuẩn bị riêng cho mình nhé."
+🍀 Bộ thẻ chăm sóc gia đình: "Nếu anh/chị có người thân cần chăm sóc răng miệng, em xin tặng thêm thẻ ưu đãi để mình chia sẻ yêu thương ạ."
+🎀 Quà lưu niệm tinh tế	Ví dụ: "Sau điều trị, em sẽ chuẩn bị một món quà nho nhỏ – để lưu giữ duyên lành mình gặp nhau tại phòng khám nhé anh/chị."
+🛡️ Thẻ bảo hành nâng cao miễn phí: "Nếu anh/chị quyết định trong hôm nay, em xin phép tặng thêm thẻ bảo hành vàng – giúp mình an tâm lâu dài hơn ạ."
+⏰ Ưu tiên lịch hẹn đẹp, lịch VIP: "Em có thể xin lịch hẹn riêng ngoài giờ cao điểm – để anh/chị không phải chờ lâu, trải nghiệm sẽ dễ chịu hơn ạ."
 
 Trong câu hội thoại mẫu gợi quà cho tư vấn viên, phải:
 Hé mở quyền lợi/quà như một món quà riêng tư ("Nếu anh/chị muốn, em xin phép dành riêng cho mình một món quà bất ngờ:..")
