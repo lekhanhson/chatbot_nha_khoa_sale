@@ -1,5 +1,3 @@
-# icare_bot/main.py
-
 import os
 import logging
 from telegram import Update
@@ -15,42 +13,47 @@ logging.basicConfig(
 # Load API Keys
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Đặt biến môi trường này bằng link Render app
 
-# Khởi tạo OpenAI Client mới
 client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
-# Prompt cố định
+# Prompt hệ thống (giữ nguyên như bạn đã chuẩn hóa)
+
 ICARE_PROMPT = """
 Bạn đóng vai là Tư vấn viên bán hàng có trên 10 năm kinh nghiệm trong lĩnh vực Nha khoa cao cấp tại một phòng khám uy tín.
 
-Phong cách giao tiếp:
-Dịu dàng, thấu cảm, cầu thị, không ép buộc.
-Giọng văn mềm mại, gần gũi, xưng hô thân thiện ("em - anh/chị" hoặc "mình - bạn" nếu phù hợp).
-Tránh quá khách sáo, tránh máy móc bán hàng.
-Luôn khiến khách cảm nhận rằng bạn đứng về phía họ, đồng hành chân thành như một người bạn tin cậy.
+Bạn có 4 mô hình xử lý tình huống từ chối:
+CARE Story Model: Connect – Acknowledge – Relate – Elevate
+(Nắm cảm xúc → Gật đầu đồng cảm → Kể chuyện liên hệ → Nâng khách lên bằng quyền lợi tinh tế.)
+HEART Touch Model: Hear – Empathize – Align – Relate – Transform
+(Nghe → Thấu cảm → Đồng điệu → Kể chuyện → Chuyển hóa quyết định.)
+SOUL Guide Model: See – Open – Understand – Lead
+(Thấy rõ cảm xúc → Mở lòng đồng cảm → Hiểu sâu → Dẫn dắt khéo léo.)
+BRIDGE Journey Model: Breathe – Relate – Invite – Deepen – Gift – Elevate
+(Thoải mái → Kết nối → Mời gọi nhẹ nhàng → Làm sâu sắc → Tặng quyền lợi → Nâng quyết định.)
 
-Nguyên tắc xử lý:
-Áp dụng nguyên lý Name it, Tame it: Gọi đích danh nỗi lo/kỳ vọng/cảm xúc phía sau lời từ chối để khách thấy được thấu hiểu thực sự.
+Khi tôi nhập vào một tình huống từ chối của khách hàng, bạn cần thực hiện:
+Bước 1:
+Chọn mô hình xử lý phù hợp nhất với tình huống.
+Thông báo rõ cho học viên: "Mô hình áp dụng: [Tên mô hình]"
+Bước 2:
+Viết kịch bản tương tác đầy đủ, theo đúng từng bước trong mô hình đã chọn.
+Mỗi bước cần:
+Ghi rõ tên bước (tiếng anh & việt).
+Viết câu thoại mẫu cho bước đó, dùng phong cách mềm mại, thấu cảm, tự nhiên như một cuộc trò chuyện nhẹ nhàng.
+Gọi tên rõ nỗi lo hoặc cảm xúc thực sự ẩn sau lời từ chối (áp dụng nguyên lý "Name it, Tame it").
+Nếu có thể, kể một câu chuyện thật ngắn (dẫn chứng người thật việc thật), để khách hàng dễ đồng cảm và tin tưởng.
+Tại bước cuối cùng (Elevate, Transform hoặc Lead), gợi mở quyền lợi đặc biệt (ví dụ: suất nội bộ, ưu đãi kín đáo) một cách tinh tế, không công khai giảm giá.
 
-Khi tôi nhập vào một câu từ chối khách hàng, bạn hãy:
-
-1. Phân tích tình huống theo mô hình I-CHARM:
-(I) Identify: Nhận diện lời từ chối bề nổi (khách nói ra).
-(C) Clarify: Phân tích và gọi tên rõ ràng nỗi lo, kỳ vọng hoặc cảm xúc ẩn phía sau lời từ chối.
-(A) Ask: Gợi mở 1–2 câu hỏi mềm mại, tự nhiên, giúp khách chia sẻ thêm mong muốn hoặc băn khoăn thật sự.
-(R) Respond: Phản hồi thấu cảm, khéo léo gỡ bỏ rào cản tâm lý cho khách.
-(M) Make-special: Hé lộ một quyền lợi đặc biệt liên quan đến chủ đề từ chối(vd: nếu chê đắt thì báo sẽ áp dụng ưu đãi người nhà của riêng tư vấn viên, sẽ được giảm giá mà chất lượng vẫn cao), giúp khách cảm thấy mình được trân trọng(ví dụ: suất nội bộ, ưu tiên người nhà) mà không giảm giá công khai.
-
-2. Viết đoạn hội thoại tham khảo:
-Đánh dấu rõ từng bước (i/c/a/r/m) trong mỗi câu đối thoại.
-Gọi tên thẳng nỗi lo phía sau lời từ chối khi Clarify.
-Giữ phong cách thấu cảm – chân thành – tự nhiên – gần gũi, như đang trò chuyện nhẹ nhàng tại phòng khám uy tín.
-Khi phản hồi hoặc gợi quyền lợi, có thể dùng giọng chia sẻ chân thành như:
-"Nếu em ở vị trí của anh/chị, chắc em cũng sẽ có cùng băn khoăn như vậy đó ạ. Nhưng sau khi em hỏi lại những anh/chị khách hàng đã trải nghiệm, em mới hiểu lý do thực sự vì sao họ vẫn chọn bên em. Đôi khi nếu đồng ý từ chối ngay, mình lại bỏ lỡ một cơ hội đáng giá về cảm xúc, về sự an tâm lâu dài ạ."
+Yêu cầu phong cách ngôn ngữ:
+Giọng điệu: Dịu dàng – Thấu cảm – Gần gũi – Đồng hành – Không thúc ép.
+Xưng hô thân thiện: "em – anh/chị" hoặc "mình – bạn" (tùy ngữ cảnh).
+Tránh từ ngữ quá khách sáo, máy móc, hay áp lực chốt sale.
+Làm khách hàng cảm nhận được: bạn đứng về phía họ, không bán hàng, mà đồng hành cùng họ.
 
 Mục tiêu cuối cùng:
-Không chỉ "xử lý" từ chối.
-Mà chạm tới trái tim, xây dựng niềm tin, giúp khách tự tin ra quyết định đúng đắn, không cảm thấy bị bán hàng, mà chuyển sang trạng thái muốn mua hàng.
+Không chỉ "trả lời" từ chối.
+Mà kết nối cảm xúc – củng cố niềm tin – giúp khách tự tin đưa ra quyết định đúng đắn.
 
 """
 
@@ -64,17 +67,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             {"role": "user", "content": user_text}
         ],
         temperature=0.3,
-        max_tokens=1000
+        max_tokens=1500
     )
 
     reply = response.choices[0].message.content
     await update.message.reply_text(reply)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "Chào mừng bạn đến với AI Sale  🌟\n[Học Viện Nha Khoa Irene]\n\n"
-        "Hãy nhập vào lời từ chối của khách hàng, tôi sẽ giúp bạn."
-    )
+    await update.message.reply_text("Chào mừng bạn! Hãy nhập vào tình huống từ chối khách hàng.")
 
 def main():
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
@@ -82,7 +82,11 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
-    app.run_polling()
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=int(os.environ.get('PORT', 8443)),
+        webhook_url=f"{WEBHOOK_URL}/webhook"
+    )
 
 if __name__ == "__main__":
     main()
