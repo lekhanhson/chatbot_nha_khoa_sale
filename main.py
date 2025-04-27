@@ -1,24 +1,29 @@
 import os
-import logging
+import threading
+from flask import Flask
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, CommandHandler, filters
 from openai import AsyncOpenAI
 
-# Cấu hình log
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
+# Flask App để giữ server sống
+flask_app = Flask(__name__)
 
-# Load API Keys
+@flask_app.route("/", methods=["GET"])
+def index():
+    return "Server is running!"  # Đơn giản, chỉ cần trả HTTP 200 OK
+
+def run_flask():
+    port = int(os.environ.get("PORT", 10000))
+    flask_app.run(host="0.0.0.0", port=port)
+
+# Telegram Bot
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Đặt biến môi trường này bằng link Render app
 
 client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
-# Prompt hệ thống (giữ nguyên như bạn đã chuẩn hóa)
-
+# ---- Prompt hệ thống ----
+# Prompt cố định
 ICARE_PROMPT = """
 Bạn đóng vai là Tư vấn viên bán hàng có trên 10 năm kinh nghiệm trong lĩnh vực Nha khoa cao cấp tại một phòng khám uy tín.
 
@@ -74,7 +79,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(reply)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Chào mừng bạn! Hãy nhập vào tình huống từ chối khách hàng.")
+    await update.message.reply_text(
+        "Chào mừng bạn! 🎉 Hãy nhập tình huống từ chối, tôi sẽ hướng dẫn bạn xử lý nhé."
+    )
 
 def main():
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
@@ -82,11 +89,8 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
-    app.run_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get('PORT', 8443)),
-        webhook_url=f"{WEBHOOK_URL}/webhook"
-    )
+    app.run_polling()  # Chạy polling như cũ, không webhook
 
 if __name__ == "__main__":
+    threading.Thread(target=run_flask).start()
     main()
