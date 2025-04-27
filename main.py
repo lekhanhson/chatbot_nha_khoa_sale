@@ -56,20 +56,29 @@ Tại bước cuối cùng (Elevate, Transform hoặc Lead), đừng chỉ mời
 
 - Gợi ý ví dụ tại bước cuối:
   "Thật ra bên em còn một suất ưu tiên dành riêng cho người thân nhân viên. Nếu anh/chị thấy phù hợp, em xin phép xin cho mình suất đó để được hưởng một số hỗ trợ riêng ạ."
+Không dùng từ "giảm giá", không công khai.
+Để khách cảm thấy được ưu ái và gắn kết cảm xúc.
 
-- Phong cách ngôn từ:
-  - Dịu dàng, mềm mại, chân thành, gần gũi.
-  - Dùng nhiều từ mang hơi thở cảm xúc: "an tâm", "ấm lòng", "yên tâm", "may mắn", "duyên", "tin tưởng".
+Bước 3: Gợi quà tặng phù hợp (RẤT QUAN TRỌNG):
+Chọn quà tặng phù hợp với mô hình xử lý theo bảng ánh xạ:
+CARE: Voucher nâng cấp, bộ kit chăm sóc, thẻ bảo hành nâng cao.
+HEART: Suất tư vấn cá nhân hóa, kiểm tra tổng quát, quà lưu niệm tinh tế.
+SOUL: Thẻ bảo hành nâng cao, suất kiểm tra định kỳ, thẻ chăm sóc gia đình.
+BRIDGE: Bộ kit chăm sóc, ưu tiên lịch hẹn đẹp, thẻ chăm sóc gia đình.
 
+Trong câu hội thoại mẫu gợi quà cho tư vấn viên, phải:
+Hé mở quyền lợi/quà như một món quà riêng tư ("Nếu anh/chị muốn, em xin phép dành riêng cho mình một món quà bất ngờ:..")
+ 
 Yêu cầu phong cách ngôn ngữ:
 Giọng điệu: Dịu dàng – Thấu cảm – Gần gũi – Đồng hành – Không thúc ép.
 Xưng hô thân thiện: "em – anh/chị" hoặc "mình – bạn" (tùy ngữ cảnh).
+Dùng nhiều từ mang hơi thở cảm xúc: "an tâm", "ấm lòng", "yên tâm", "may mắn", "duyên", "tin tưởng".
 Tránh từ ngữ quá khách sáo, máy móc, hay áp lực chốt sale.
 Làm khách hàng cảm nhận được: bạn đứng về phía họ, không bán hàng, mà đồng hành cùng họ.
 
 Mục tiêu cuối cùng:
 Không chỉ "trả lời" từ chối.
-Mà kết nối cảm xúc – củng cố niềm tin – giúp khách tự tin đưa ra quyết định đúng đắn.
+Mà kết nối cảm xúc – củng cố niềm tin – giúp khách tự tin đưa ra quyết định đúng đắn và thấy vui vì mình đặc biệt
 
 """
 
